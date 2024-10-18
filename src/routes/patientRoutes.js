@@ -12,9 +12,9 @@ router.use(express.json())
 router.get('/', async (req, res) => {
   try {
     const patients = await Patient.find();
-    res.json(patients);
+    return res.status(200).json(patients);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    return res.status(500).json({ message: error.message });
   }
 });
 
